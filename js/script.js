@@ -41,11 +41,15 @@ for (i = 0; i < emailList.length; i++) {
 var userSurname = prompt("inserisci qui il TUO COGNOME");
 console.log ("Cognome inserito: ", userSurname);
 
+// bonus
+
+var maiusc = userSurname[1].toUpperCase() + userSurname.slice(1);
+
+
 // inseriscilo in un array con altri cognomi: ‘Bianchi’, ‘Neri’, ‘Rossi’, ‘Verdi’, ‘Gialli’
-var surnameList = ["bianchi", "neri", "rossi", "verdi","gialli"];
-surnameList.push(userSurname);
+var surnameList = ["Bianchi", "Neri", "Rossi", "Verdi","Gialli"];
+surnameList.push(maiusc);
 
 // stampa la lista ordinata alfabeticamente
 console.log(surnameList.sort()) ;
 document.getElementById("user_surname_list").innerHTML = "--x " + surnameList.sort() + " x--";
-
