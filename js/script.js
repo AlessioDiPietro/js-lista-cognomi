@@ -37,19 +37,32 @@ console.log("BENTORNATO!");
 // scrivi anche la posizione "umana" (partendo da 1) della lista in cui il nuovo utente si trova
 
 
+var surnameList = ["Bianchi", "Neri", "Rossi", "Verdi","Gialli"];
+
+
 // chiedi all’utente il cognome
 var userSurname = prompt("inserisci qui il TUO COGNOME");
 console.log ("Cognome inserito: ", userSurname);
 
 // bonus
+userSurname = userSurname.charAt(0).toUpperCase() + userSurname.substring(1).toLowerCase();
 
-var maiusc = userSurname[1].toUpperCase() + userSurname.slice(1);
 
 
-// inseriscilo in un array con altri cognomi: ‘Bianchi’, ‘Neri’, ‘Rossi’, ‘Verdi’, ‘Gialli’
-var surnameList = ["Bianchi", "Neri", "Rossi", "Verdi","Gialli"];
-surnameList.push(maiusc);
+// inserisci in array
+surnameList.push(userSurname);
+
+
 
 // stampa la lista ordinata alfabeticamente
-console.log(surnameList.sort()) ;
-document.getElementById("user_surname_list").innerHTML = "--x " + surnameList.sort() + " x--";
+surnameList.sort() ;
+
+
+
+for(var i = 0; i < surnameList.length; i++) {
+    document.getElementById("user_surname_list").innerHTML += "--x " + surnameList[i] + " x--";
+    if (surnameList[i] == userSurname) {
+        document.getElementById("posizione").innerHTML = i + 1;
+    }
+}
+
